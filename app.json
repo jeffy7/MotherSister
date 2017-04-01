@@ -1,29 +1,46 @@
 {
   "pages":[
+    "pages/record/record",
+    "pages/calender/calender",
     "pages/index/index",
     "pages/logs/logs",
     "pages/mine/mine"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#c62026",
+    "navigationBarBackgroundColor": "#576b95",
     "navigationBarTitleText": "傻妞小姨妈",
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
-    "selectedColor": "#c62026",
+    "selectedColor": "#576b95",
     "color": "#000000",
-    "list": [{
+    "list": [
+      {
+      "pagePath": "pages/record/record",
+      "iconPath":"images/tabar/unchecked.png",
+      "selectedIconPath":"images/tabar/checked.png",
+      "text": "记录"
+    },
+    {
+      "pagePath": "pages/calender/calender",
+      "iconPath":"images/tabar/unchecked.png",
+      "selectedIconPath":"images/tabar/checked.png",
+      "text": "日历"
+    },
+     {
       "pagePath": "pages/index/index",
       "iconPath":"images/tabar/unchecked.png",
       "selectedIconPath":"images/tabar/checked.png",
       "text": "记录"
-    }, {
+    }, 
+    {
       "pagePath": "pages/logs/logs",
       "iconPath":"images/tabar/unchecked.png",
       "selectedIconPath":"images/tabar/checked.png",
       "text": "日历"
-    }, {
+    }, 
+    {
       "pagePath": "pages/mine/mine",
       "iconPath":"images/tabar/unchecked.png",
       "selectedIconPath":"images/tabar/checked.png",
