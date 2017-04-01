@@ -8,5 +8,20 @@
     "navigationBarBackgroundColor": "#c62026",
     "navigationBarTitleText": "傻妞小姨妈",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "selectedColor": "#c62026",
+    "color": "#000000",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath":"images/tabar/unchecked.png",
+      "selectedIconPath":"images/tabar/checked.png",
+      "text": "记录"
+    }, {
+      "pagePath": "pages/logs/logs",
+      "iconPath":"images/tabar/unchecked.png",
+      "selectedIconPath":"images/tabar/checked.png",
+      "text": "日历"
+    }]
   }
 }
