@@ -1,2 +1,20 @@
 <!--pages/record/record.wxml-->
-<text>pages/record/record.wxml</text>
+
+<view class="container">
+    <text class="descLabel">{{descLabel}}</text>
+
+    <image class="userinfo-icon" src="{{userInfo.avatarUrl}}"   background-size="cover"></image>
+
+<block wx:if="{{true}}">
+    <view class="desc-di" bindtap="toDetail">第</view>
+    <text class="desc-day">{{userInfo.nickName}}</text>
+    <text class="desc-tian">天</text>
+</block>
+    
+
+    <button wx:if="{{true}}" type="primary" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}" bindtap="primary"> 小姨妈来了 </button>
+    <button wx:else type="primary" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}" bindtap="primary"> 小姨妈走了 </button>
+
+
+
+</view>

@@ -1,1 +1,21 @@
 /* pages/record/record.wxss */
+.descLabel{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.userinfo-icon {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.desc-di {
+
+}
+.desc-tian {
+    
+}
+.userinfo-nickname {
+    width: 100rpx;
+}
