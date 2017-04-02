@@ -5,6 +5,8 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+    wx.setStorageSync('have_data',0)  
+
   },
   getUserInfo:function(cb){
     var that = this
