@@ -14,21 +14,38 @@
     </view>
     <view class="calendar-body">
         <view class="calendar-body-rows" wx:for="123456" wx:for-index="row" wx:key="*this">
-            <!--未选中-->
+            
             <view class="calendar-body-cols" wx:for="1234567" wx:for-index="col" wx:key="*this">
-                <view class="calendar-body-item" wx:if="{{arrIsShow[row * 7 + col]}}" data-day-index="{{row * 7 + col}}" bindtap="selectDay">
-                    <view wx:if="{{arrIsSelect[row * 7 + col]}}" class="calendar-body-day-selected">
+            <!--选中-->
+                <view wx:if="{{arrIsSelect[row * 7 + col] && arrIsShow[row * 7 + col]}}" class="calendar-body-item-selected" data-day-index="{{row * 7 + col}}" bindtap="selectDay">                         <view class="calendar-body-day">
                         {{arrDays[row * 7 + col]}}
                     </view>
-                    <view wx:else class="calendar-body-day">
-                        {{arrDays[row * 7 + col]}}
-                    </view>
-
                     <view class="calendar-body-dayex">
                         {{arrInfoExShow[row * 7 + col]}}
                     </view>
+                    
                 </view>
+                <view wx:elif="{{arrIsSelect[row * 7 + col] == false && arrIsShow[row * 7 + col] == true}}" class="calendar-body-item" data-day-index="{{row * 7 + col}}" bindtap="selectDay">                         <view class="calendar-body-day">
+                        {{arrDays[row * 7 + col]}}
+                    </view>
+                    <view class="calendar-body-dayex">
+                        {{arrInfoExShow[row * 7 + col]}}
+                    </view>
+                    
+                </view>
+
+                <!--<view wx:else class="calendar-body-item" data-day-index="{{row * 7 + col}}" bindtap="selectDay">                         
+                    <view class="calendar-body-day">
+                        {{arrDays[row * 7 + col]}}
+                    </view>
+                    <view class="calendar-body-dayex">
+                        {{arrInfoExShow[row * 7 + col]}}
+                    </view>
+                    
+                </view>-->
+            
             </view>
+            
 
 
         </view>
