@@ -1,0 +1,16 @@
+<!--pages/save/save.wxml-->
+<!--//date的日期只能是当前日期之后，（补充：可以之前）-->
+<view class="section">
+
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+
+    <view class="days">
+    月经周期天数：{{array[index]}}
+    </view>
+
+  </picker>
+
+  <button type="primary" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}" bindtap="saveButton"> 保存 </button>
+
+  
+</view>

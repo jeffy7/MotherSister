@@ -2,9 +2,9 @@
   "pages":[
     "pages/record/record",
     "pages/calender/calender",
-    "pages/index/index",
     "pages/logs/logs",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/save/save"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -27,12 +27,6 @@
       "iconPath":"images/tabar/unchecked.png",
       "selectedIconPath":"images/tabar/checked.png",
       "text": "日历"
-    },
-     {
-      "pagePath": "pages/index/index",
-      "iconPath":"images/tabar/unchecked.png",
-      "selectedIconPath":"images/tabar/checked.png",
-      "text": "记录"
     }, 
     {
       "pagePath": "pages/logs/logs",

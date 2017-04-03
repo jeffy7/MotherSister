@@ -22,15 +22,6 @@
 
   </picker>
 </view>
-<!--//date的日期可以在此之前
-<view wx:else class="section">
-  <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
-
-    <button type="primary" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}"> 小姨妈来了 </button>
-
-
-  </picker>
-</view>-->
 
 
 </view>

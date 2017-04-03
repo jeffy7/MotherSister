@@ -9,8 +9,6 @@ Page({
   },
   onLoad:function(options){
     var haveDate = wx.getStorageSync('have_data') 
-          
-    console.log(haveDate+'++++++++++++++++')
     this.setData({
       haveDate:haveDate
     })
@@ -26,20 +24,14 @@ Page({
 
     })
   },
-  //first method
-  toDetail:function(){
-    
-
-  },
+ 
   // datapicker
   bindDateChange: function(e) {
     console.log('onLoad99999999999')
     this.setData({
       date: e.detail.value
     })
-
-
-      console.log( e.detail.value)
+    console.log( e.detail.value)
   },
   onReady:function(){
     // 页面渲染完成
