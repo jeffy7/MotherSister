@@ -35,12 +35,14 @@ var pageData = {
     arrDays: [],            //关于几号的信息
     arrInfoEx: [],          //农历节假日等扩展信息
     arrInfoExShow: [],      //处理后用于显示的扩展信息
+    arrIsSelect: [],        //处理是否选中
 
     //选择一天时显示的信息
     detailData: {
         curDay: "",         //detail中显示的日信息
         curInfo1: "",
         curInfo2: "",
+        curSelect:"",
     }
     
 }
@@ -67,6 +69,8 @@ var refreshPageData = function(year, month, day){
         var d = new Date(year, month, i - offset + 1);
         var dEx = calendarConverter.solar2lunar(d);
         pageData.arrInfoEx[i] = dEx;
+        // pageData.detailData.curDay
+        
         if ("" != dEx.lunarFestival)
         {
             pageData.arrInfoExShow[i] = dEx.lunarFestival;
@@ -79,6 +83,7 @@ var refreshPageData = function(year, month, day){
         {
             pageData.arrInfoExShow[i] = dEx.lunarDay;
         }
+        pageData.arrIsSelect[i] = '{{flag ? true : false}}'
     }
 
     setCurDetailIndex(offset + day);
@@ -139,6 +144,12 @@ Page({
         this.setData({
             detailData: pageData.detailData,
         })
+        for (var i = 0; i < 42; ++i)
+        {
+            pageData.arrIsSelect[i] = pageData.arrDays[i] == pageData.detailData.curDay ? true : false;
+        }
+
+        // console.log(pageData.detailData.curDay)
     },
 
     bindDateChange: function(e){

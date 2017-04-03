@@ -56,6 +56,14 @@
     height: 100%;
     padding: 0 4rpx;
 }
+.calendar-body-cols-selected {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    height: 100%;
+    padding: 0 4rpx;
+    color: red;
+}
 .calendar-body-item{
     display: block;
     background: #fff;
