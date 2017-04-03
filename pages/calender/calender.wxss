@@ -73,6 +73,10 @@
 .calendar-body-day{
     text-align: center;
 }
+.calendar-body-day-selected{
+    text-align: center;
+    background:red;
+}
 .calendar-body-dayex{
     text-align: center;
     font-size: 25rpx;

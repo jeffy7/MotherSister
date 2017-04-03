@@ -17,9 +17,13 @@
             <!--未选中-->
             <view class="calendar-body-cols" wx:for="1234567" wx:for-index="col" wx:key="*this">
                 <view class="calendar-body-item" wx:if="{{arrIsShow[row * 7 + col]}}" data-day-index="{{row * 7 + col}}" bindtap="selectDay">
-                    <view class="calendar-body-day">
+                    <view wx:if="{{arrIsSelect[row * 7 + col]}}" class="calendar-body-day-selected">
                         {{arrDays[row * 7 + col]}}
                     </view>
+                    <view wx:else class="calendar-body-day">
+                        {{arrDays[row * 7 + col]}}
+                    </view>
+
                     <view class="calendar-body-dayex">
                         {{arrInfoExShow[row * 7 + col]}}
                     </view>

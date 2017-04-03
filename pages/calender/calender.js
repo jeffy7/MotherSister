@@ -42,7 +42,6 @@ var pageData = {
         curDay: "",         //detail中显示的日信息
         curInfo1: "",
         curInfo2: "",
-        curSelect:"",
     }
     
 }
@@ -54,10 +53,19 @@ var setCurDetailIndex = function(index){
     pageData.detailData.curDay = curEx.sDay;
     pageData.detailData.curInfo1 = "农历" + curEx.lunarMonth + "月" + curEx.lunarDay;
     pageData.detailData.curInfo2 = curEx.cYear+curEx.lunarYear + "年 " + curEx.cMonth + "月 " + curEx.cDay + "日 " + curEx.lunarFestival;
+
+    console.log(1111111111111)
+
+    for (var i = 0; i < 42; ++i)
+    {
+        pageData.arrIsSelect[i] = pageData.arrDays[i] == pageData.detailData.curDay ? true : false;
+    }
+
 }
 
 //刷新全部数据
 var refreshPageData = function(year, month, day){
+    console.log(222222222222)
     pageData.date = year+'年'+(month+1)+'月';
 
     var offset = new Date(year, month, 1).getDay();
@@ -65,6 +73,7 @@ var refreshPageData = function(year, month, day){
     for (var i = 0; i < 42; ++i)
     {
         pageData.arrIsShow[i] = i < offset || i >= getDayCount(year, month) + offset ? false : true;
+        
         pageData.arrDays[i] = i - offset + 1;
         var d = new Date(year, month, i - offset + 1);
         var dEx = calendarConverter.solar2lunar(d);
@@ -83,10 +92,14 @@ var refreshPageData = function(year, month, day){
         {
             pageData.arrInfoExShow[i] = dEx.lunarDay;
         }
-        pageData.arrIsSelect[i] = '{{flag ? true : false}}'
+        
+
     }
 
     setCurDetailIndex(offset + day);
+    //设置当前进来选中的日期
+    
+
 };
 
 var curDate = new Date();
@@ -144,12 +157,10 @@ Page({
         this.setData({
             detailData: pageData.detailData,
         })
-        for (var i = 0; i < 42; ++i)
-        {
-            pageData.arrIsSelect[i] = pageData.arrDays[i] == pageData.detailData.curDay ? true : false;
-        }
+ 
+        refreshPageData(curYear, curMonth, curDay);
+        this.setData(pageData);
 
-        // console.log(pageData.detailData.curDay)
     },
 
     bindDateChange: function(e){
