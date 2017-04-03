@@ -2,7 +2,9 @@
 <view class="container" bindlongtap="goSetPage">
 
     <image class="userinfo-icon" src="{{userInfo.avatarUrl}}"   background-size="cover"></image>
-    <text class="userinfo-nickname">hello{{userInfo.nickName}}!</text>
+    <text class="userinfo-nickname">hello</text>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <text class="userinfo-nickname">!</text>
 
     <button type="primary" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}" bindtap="goSetPage"> 设置 </button>
 

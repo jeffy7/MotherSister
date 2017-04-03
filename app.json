@@ -32,7 +32,7 @@
       "pagePath": "pages/logs/logs",
       "iconPath":"images/tabar/unchecked.png",
       "selectedIconPath":"images/tabar/checked.png",
-      "text": "日历"
+      "text": "日志"
     }, 
     {
       "pagePath": "pages/mine/mine",

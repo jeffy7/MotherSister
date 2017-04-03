@@ -8,6 +8,24 @@
   border-color: #888888;
   border-style: solid;
 }
-.userinfo-nickname {
+.welcomeDesc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    height: 83rpx;
+}
+.userinfo-nickname{
+    flex-grow: 1;
     width: 100rpx;
+    height: 50rpx;
+    text-align: center;
+    font-size: 30rpx;
+}
+.userinfo-desc{
+    flex-grow: 1;
+    width: 150rpx;
+    height: 50rpx;
+    text-align: center;
+    font-size: 30rpx;
 }
