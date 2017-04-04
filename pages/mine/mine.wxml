@@ -1,5 +1,5 @@
 <!--pages/mine/mine.wxml-->
-<view class="container" bindlongtap="goSetPage">
+<view class="container" >
 
     <image class="userinfo-icon" src="{{userInfo.avatarUrl}}"   background-size="cover"></image>
     <text class="userinfo-nickname">hello</text>
@@ -7,6 +7,8 @@
     <text class="userinfo-nickname">!</text>
 
     <button type="primary" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}" bindtap="goSetPage"> 设置 </button>
-
+    <block wx:for="{{records}}" wx:for-item="record" wx:key="*this">
+        <text class="record-item">{{index + 1}}. {{record}}</text>
+    </block>
     
 </view>

@@ -3,6 +3,7 @@ var app = getApp()
 Page({
   data:{   
      userInfo:{},
+     records: [],
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
@@ -14,6 +15,7 @@ Page({
         userInfo:userInfo
       })
     })
+
   },
   goSetPage:function(){
     console.log('++++++++')
@@ -37,6 +39,9 @@ Page({
   },
   onShow:function(){
     // 页面显示
+    this.setData({
+      records: wx.getStorageSync('records'),
+    })
   },
   onHide:function(){
     // 页面隐藏

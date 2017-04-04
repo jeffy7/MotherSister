@@ -2,8 +2,6 @@
 var userDays = {
   days : '44'
 }
-// var array
-// var index
 
 Page({
   data:{
@@ -13,37 +11,42 @@ Page({
             '31','32','33','34','35','36','37','38','39','40',
             '41','42','43','44','45','46','47','48','49','50',
             ],
-    index:29,
-    userDays,
+    index:0,//没有用
+    days:'',
     
   },
   
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    var saveIndex;
+    var userData = wx.getStorageSync('userData')
+    this.setData({
+      days:userData.days
+    })
   },
   bindPickerChange: function(e) {
-    
+    var daysnum = parseInt(e.detail.value);
+        console.log('num', daysnum)
+
+    daysnum = daysnum +1
+            console.log('num + 1', daysnum)
+
+    var daysStr = daysnum.toString();
+            console.log('str', daysStr)
+
     this.setData({
-      index:e.detail.value
+      days:daysStr
     })
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-
-    // this.setData({
-    //   array: this.data.array
-    // })
-
-    // console.log(array)
-
-    // this.setData({
-    //   days: this.data.array[index]
-    // })
+    console.log('picker发送选择改变，携带值为', daysStr)
   },
   saveButton:function(){
-    // wx.setStorageSync('days',index)
-    console.log(userDays.days)
-
-
+    var userData = wx.getStorageSync('userData')
+    userData.days = this.data.days
+    wx.setStorageSync('userData', userData)
+    
+    wx.showToast({
+      title: "保存成功",
+      duration: 1000
+    })
   },
   onReady:function(){
     // 页面渲染完成

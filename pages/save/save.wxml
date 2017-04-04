@@ -5,7 +5,7 @@
   <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
 
     <view class="days">
-    月经周期天数：{{array[index]}}
+    月经周期天数：{{days}}
     </view>
 
   </picker>

@@ -45,7 +45,8 @@ Page({
     var userData = wx.getStorageSync('userData')
     if(pageData.iscome){
       pageData.iscome = 0
-      //记录一条数据
+      //记录一条数据 并且记住结束状态
+      userData.iscome = 0
       userData.endtime = e.detail.value
 
       var records = wx.getStorageSync('records') || []
@@ -57,7 +58,8 @@ Page({
       userData.endtime = ''
     }else {
       pageData.iscome = 1
-      //记录开始的时间
+      //记录开始的时间 并且记住开始状态
+      userData.iscome = 1
       userData.starttime = e.detail.value
     }
     wx.setStorageSync('userData', userData)
