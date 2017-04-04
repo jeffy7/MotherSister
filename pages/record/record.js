@@ -41,6 +41,17 @@ Page({
       date: e.detail.value
     })
     console.log( e.detail.value)
+    var stringTime = e.detail.value;
+var timestamp2 = Date.parse(new Date(stringTime));
+//2014-07-10 10:21:12的时间戳为：1404958872 
+console.log(stringTime + "的时间戳为：" + timestamp2);
+var date =  new Date(timestamp2)
+var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+console.log("yyyy" + year);
+console.log("mm" + month);
+console.log("dd" + day);
 
     var userData = wx.getStorageSync('userData')
     if(pageData.iscome){
