@@ -37,17 +37,30 @@ Page({
  
   // datapicker
   bindDateChange: function(e) {
-    console.log('onLoad99999999999')
     this.setData({
       date: e.detail.value
     })
     console.log( e.detail.value)
 
+    var userData = wx.getStorageSync('userData')
     if(pageData.iscome){
       pageData.iscome = 0
+      //记录一条数据
+      userData.endtime = e.detail.value
+
+      var records = wx.getStorageSync('records') || []
+      records.unshift(userData.starttime+'       '+userData.endtime)
+      wx.setStorageSync('records', records)
+
+      //清除暂存的数据
+      userData.starttime = ''
+      userData.endtime = ''
     }else {
       pageData.iscome = 1
+      //记录开始的时间
+      userData.starttime = e.detail.value
     }
+    wx.setStorageSync('userData', userData)
     this.setData(pageData)
 
   },
