@@ -5,7 +5,22 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-    wx.setStorageSync('have_data',0)  
+
+    //调用API从本地缓存中获取 历史小姨妈 的数据
+    var records = wx.getStorageSync('records') || []
+    wx.setStorageSync('records', records)
+
+wx.clearStorageSync('userData')
+    //用户缓存的数据，如 是否设置来了小姨妈，小姨妈的平均周期，未完
+    var userData = wx.getStorageSync('userData') || {
+      iscome:1,
+      days:'29',
+
+    }
+
+    wx.setStorageSync('userData', userData)
+    var that = this
+    this.globalData.userData = userData
 
   },
   getUserInfo:function(cb){
@@ -27,6 +42,7 @@ App({
     }
   },
   globalData:{
-    userInfo:null
+    userInfo:null,
+    userData:null,
   }
 })

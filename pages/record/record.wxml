@@ -5,9 +5,9 @@
 
     <image class="userinfo-icon" src="{{userInfo.avatarUrl}}"   background-size="cover"></image>
 
-<block wx:if="{{haveDate}}">
+<block wx:if="{{iscome}}">
     <view class="desc-di">第</view>
-    <text class="desc-day">{{haveDate}}</text>
+    <text class="desc-day">{{days}}</text>
     <text class="desc-tian">天</text>
 </block>
     
@@ -17,7 +17,7 @@
 <view class="section">
   <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
 
-    <button wx:if="{{haveDate > 0}}" type="primary" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}"> 小姨妈走了 </button>
+    <button wx:if="{{iscome}}" type="primary" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}"> 小姨妈走了 </button>
     <button wx:else type="primary" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}"> 小姨妈来了 </button>
 
   </picker>
