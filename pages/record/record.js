@@ -1,28 +1,32 @@
 // pages/record/record.js
+var util = require('../../utils/util.js')
 var app = getApp()
 var pageData = {
   iscome:0,
   days:'',
+  willDays:'',
 }
+
 
 Page({
   data:{
     descLabel: '小姨妈来了',
     userInfo:{},
-    date: '2016-09-01',
+    date: '2017-04-01',
     iscome111:0,
   },
-  
 
   onLoad:function(options){
+         console.log( util.formatTime(new Date()))
+
+    //是否来小姨妈
     pageData.iscome = app.globalData.userData.iscome
-    pageData.days = app.globalData.userData.days
+    //来了多少天
+    pageData.days = util.forComeDays(new Date())
+    //预计还有多少天来
+
     this.setData(pageData)
-    // this.setData({
-    //   iscome111:iscome,
-    //   days:days,
-    // })
-    // 页面初始化 options为页面跳转所带来的参数
+   
     var that = this;
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function(userInfo){
@@ -66,7 +70,7 @@ console.log("dd" + day);
 
       //清除暂存的数据
       userData.starttime = ''
-      userData.endtime = ''
+      //userData.endtime = ''  ,endtime 不应该删除，要计算离下一次大姨妈还有多长时间
     }else {
       pageData.iscome = 1
       //记录开始的时间 并且记住开始状态
@@ -77,6 +81,7 @@ console.log("dd" + day);
     this.setData(pageData)
 
   },
+   
   onReady:function(){
     // 页面渲染完成
   },

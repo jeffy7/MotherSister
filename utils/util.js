@@ -1,3 +1,5 @@
+//日志格式yyyy/mm/dd hh:mm:ss
+var app = getApp()
 function formatTime(date) {
   var year = date.getFullYear()
   var month = date.getMonth() + 1
@@ -7,8 +9,19 @@ function formatTime(date) {
   var minute = date.getMinutes()
   var second = date.getSeconds()
 
-
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+}
+//把日期格式换算成yyyy-mm-dd
+function formatNormalTime(date) {
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+
+  var hour = date.getHours()
+  var minute = date.getMinutes()
+  var second = date.getSeconds()
+  
+  return [year, month, day].map(formatNumber).join('-')
 }
 
 function formatNumber(n) {
@@ -29,15 +42,41 @@ function forPickerEndTime(n) {
 }
 
 //计算小姨妈来了是第几天
-function forComeNumber(n) {
-  n = n.toString()
-  return n[1] ? n : '0' + n
+function forComeDays(n) {
+  //当前时间
+  var currenTime = formatNormalTime(new Date())
+  //存下的开始的时间 默认是yyyy-mm-dd
+  var starTime = app.globalData.userData.starttime
+  console.log('currenTime:'+currenTime)
+  console.log('starTime:'+starTime)
+  // n = n.toString()
+  return dateDiff(currenTime,  starTime)
 }
 //计算预计还有多少天来小姨妈
 function forWillComeNumber(n) {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
+//计算天数差的函数，通用  
+function  dateDiff(sDate1,  sDate2){    
+  //sDate1和sDate2是2006-12-18格式  
+    var  aDate,  oDate1,  oDate2,  iDays  
+    aDate  =  sDate1.split("-")  
+    oDate1  =  new  Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0])      
+    //转换为12-18-2006格式  
+    aDate  =  sDate2.split("-")  
+    oDate2  =  new Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0])  
+    iDays  =  parseInt(Math.abs(oDate1 - oDate2)/1000/60/60/24)    
+    //把相差的毫秒数转换为天数  
+    return  iDays  
+} 
+
+
+
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  formatNormalTime:formatNormalTime,
+  forComeDays:forComeDays
+  
 }
