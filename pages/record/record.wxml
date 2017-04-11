@@ -15,7 +15,7 @@
     
 <!--//date的日期只能是当前日期之后，（补充：可以之前）-->
 <view class="section">
-  <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+  <picker mode="date" value="{{dateValue}}" start="{{dateStartValue}}" end="{{dateEndValue}}" bindchange="bindDateChange">
 
     <button wx:if="{{iscome}}" type="primary" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}"> 小姨妈走了 </button>
     <button wx:else type="primary" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}"> 小姨妈来了 </button>
